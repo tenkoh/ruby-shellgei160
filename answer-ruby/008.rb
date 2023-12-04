@@ -4,7 +4,6 @@ logs = File.open('qdata/8/access.log', 'r').readlines
 def am?(record)
   re = %r{\[\d{2}/[a-zA-Z]{3}/\d{4}:(\d{2}):}
   h = record.match(re)[1].to_i
-  puts h
   h < 12
 end
 
