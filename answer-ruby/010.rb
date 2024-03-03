@@ -6,6 +6,9 @@
 text = File.open('qdata/10/headings.md', 'r').read
 
 # 改行をエスケープさせないためにgsubメソッドにブロックを使用し、ブロック内で" "を使っている
-text = text.gsub(/^## +(.*)/) { |_match| "#{Regexp.last_match(1)}\n---" }
-text = text.gsub(/^# +(.*)/) { |_match| "#{Regexp.last_match(1)}\n===" }
+# text = text.gsub(/^## +(.*)/) { |_match| "#{Regexp.last_match(1)}\n---" }
+# text = text.gsub(/^# +(.*)/) { |_match| "#{Regexp.last_match(1)}\n===" }
+
+text.gsub!(/^## +(.*)/, "\\1\n---")
+text.gsub!(/^# +(.*)/, "\\1\n===")
 puts text
